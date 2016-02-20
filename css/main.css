@@ -1,0 +1,12 @@
+.textoverimg {
+    display: table;
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    text-decoration: none;
+    color: #ffffff;
+    padding-left: 1em;
+}
+a:link, a:hover, a:visited {
+    text-decoration: none;
+}
