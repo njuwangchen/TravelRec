@@ -4,7 +4,7 @@
 
 var routerApp = angular.module('routerApp', ['ui.router']);
 
-routerApp.config(['$stateProvider', '$urlRouterProvider'], function ($stateProvider, $urlRouterProvider) {
+routerApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/form');
     $stateProvider
         .state('form', {
@@ -23,4 +23,4 @@ routerApp.config(['$stateProvider', '$urlRouterProvider'], function ($stateProvi
                 }
             }
         })
-});
+}]);
