@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Make a Plan</h2>
-					{{message}}
+                    {{message}}
                     <hr class="star-primary">
                 </div>
             </div>
@@ -48,6 +48,8 @@
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
                     <form name="planForm" id="planForm" novalidate ng-submit="submit()">
+                        <!--<style>.ng-invalid{border: 1px !important; border-color: red !important;}</style>-->
+                        <style>.ng-submitted input.ng-invalid{background-color: #ffc0c0;}</style>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>From</label>

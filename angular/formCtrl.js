@@ -1,5 +1,5 @@
 var formM = angular.module('formM', []);
-formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', function($scope, $http, $rootScope, $state) {
+formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', '$timeout', function($scope, $http, $rootScope, $state, $timeout) {
 	$scope.req = {
 		'from': '',
 		'budget': 300,
@@ -8,8 +8,17 @@ formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', functio
 	};
 	$scope.message = '';
 	$scope.submit = function(){
+		if ($scope.planForm.$invalid) {
+			console.log('invalid submittion');
+			return;
+		}
 		var resP = $http.post('backend', $scope.req);
-		$scope.message = 'Please wait...';
+		// $scope.message = 'Please wait...';
+		$scope.eta = 120;
+		$scope.clock = $timeout(function(){
+			$scope.message = ($scope.eta--) + ' seconds remaining';
+		}, 1000);
+		$scope.planForm.disabled = true;
 		resP.then(function(response){
 			console.log(response);
 			$rootScope.results = response.data;
