@@ -1,0 +1,110 @@
+<!--<div class="portfolio-modal modal fade" id="detail" tabindex="-1" role="dialog" aria-hidden="true">-->
+    <!--<div class="modal-content">-->
+        <!--<div class="close-modal" data-dismiss="modal">-->
+            <!--<div class="lr">-->
+                <!--<div class="rl">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 col-lg-offset-2">-->
+                    <!--<div class="modal-body">-->
+                        <!--<h2>Chicago</h2>-->
+                        <!--<hr class="star-primary">-->
+                        <!--<img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">-->
+                        <!--<uib-accordion close-others = "oneAtTime">-->
+
+                        <!--</uib-accordion>-->
+                        <!--<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>-->
+                        <!--<ul class="list-inline item-details">-->
+                            <!--<li>Client:-->
+                                <!--<strong><a href="http://startbootstrap.com">Start Bootstrap</a>-->
+                                <!--</strong>-->
+                            <!--</li>-->
+                            <!--<li>Date:-->
+                                <!--<strong><a href="http://startbootstrap.com">April 2014</a>-->
+                                <!--</strong>-->
+                            <!--</li>-->
+                            <!--<li>Service:-->
+                                <!--<strong><a href="http://startbootstrap.com">Web Development</a>-->
+                                <!--</strong>-->
+                            <!--</li>-->
+                        <!--</ul>-->
+                        <!--<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="portfolio-modal">
+    <div class="modal-content">
+
+        <!--<div class="container">-->
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>{{item.name}}</h2>
+                    <hr class="star-primary"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <uib-accordion close-others="true">
+                        <uib-accordion-group heading="Route {{$index+1}}" is-open="$first" ng-repeat="route in item.routes">
+                            <p>Rating: {{route.rating}}</p>
+                            <p>Estimated total Cost: {{route.cost}}</p>
+                            <!--flight begin-->
+                            <p>the total fare of flights: {{route.flight.fare.total_price}}</p>
+                            <ul>outbounds flight:
+                                <li ng-repeat="f in route.flight.itineraries[0].outbound.flights">
+                                    <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
+                                    <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
+                                    <p>{{f.departs_at}} - {{f.arrives_at}}</p>
+                                </li>
+                            </ul>
+                            <ul>inbounds flight:
+                                <li ng-repeat="f in route.flight.itineraries[0].inbound.flights">
+                                    <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
+                                    <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
+                                    <p>{{f.departs_at}} - {{f.arrives_at}}</p>
+                                </li>
+                            </ul>
+                            <!--<a target="_blank" ng-href="{{route.flight.deep_link}}">purchase</a>-->
+
+                            <!-- hotel begins -->
+                            <p>{{route.hotel.property_name}}</p>
+                            <p>${{route.hotel.total_price.amount}} per night</p>
+                            <p>{{route.hotel.address.line1}}</p>
+                            <p>{{route.hotel.contacts[0].type}}: {{route.hotel.contacts[0].detail}}</p>
+                            <!--<a ng-href="{{route.hotel._links.more_rooms_at_this_hotel.href}}">see more</a>-->
+                        </uib-accordion-group>
+                    </uib-accordion>
+                </div>
+            </div>
+            <div class="row" ng-repeat="poi in item.POIs">
+                <div class="col-lg-6">
+                    <img ng-src="{{poi.main_image}}">
+                </div>
+                <div class="col-lg-6">
+                    <p>{{poi.title}}</p>
+                    <p>{{poi.details.short_description}}</p>
+                </div>
+            </div>
+        <!--</div>-->
+    </div>
+</div>
+
+<!--<script type="text/ng-template" id="myModalContent.html">-->
+    <!--<div class="modal-header">-->
+        <!--<h3 class="modal-title">I'm a modal!</h3>-->
+    <!--</div>-->
+    <!--<div class="modal-body">-->
+        <!--<p>test</p>-->
+    <!--</div>-->
+    <!--<div class="modal-footer">-->
+        <!--<button class="btn btn-primary" type="button" ng-click="ok()">OK</button>-->
+        <!--<button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>-->
+    <!--</div>-->
+<!--</script>-->
