@@ -7,11 +7,17 @@ formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', '$inter
 		'return': null,
 	};
 	$scope.message = '';
+	$scope.fetching = false;
 	$scope.submit = function(){
 		if ($scope.planForm.$invalid) {
 			console.log('invalid submittion');
 			return;
 		}
+		if ($scope.fetching) {
+			console.log('already fetching');
+			return;
+		}
+		$scope.fetching = true;
 		var resP = $http.post('/demo/', $scope.req);
 		// $scope.message = 'Please wait...';
 		$scope.eta = 120;
