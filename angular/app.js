@@ -2,7 +2,7 @@
  * Created by ClarkWong on 20/2/16.
  */
 
-var routerApp = angular.module('routerApp', ['ui.router', 'ui.bootstrap', 'formM', 'resultsM', 'loginM']);
+var routerApp = angular.module('routerApp', ['ui.router', 'ui.bootstrap', 'ngAnimate', 'formM', 'resultsM', 'loginM']);
 
 routerApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/login');
