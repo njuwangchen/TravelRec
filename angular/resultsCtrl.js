@@ -4,7 +4,7 @@ resultsM.controller('resultsCtrl', ['$scope', '$rootScope', '$uibModal', functio
 	$scope.results = $rootScope.results;
 	console.log($scope.results);
 
-	$scope.open = function () {
+	$scope.open = function (num) {
 		var modalInstance = $uibModal.open({
 			animation: true,
 			templateUrl: 'view/detail.html',
@@ -12,7 +12,7 @@ resultsM.controller('resultsCtrl', ['$scope', '$rootScope', '$uibModal', functio
 			size: 'lg',
 			resolve: {
 				item: function () {
-					return $scope.results.results[0]
+					return $scope.results.results[num]
 				}
 			}
 		});
