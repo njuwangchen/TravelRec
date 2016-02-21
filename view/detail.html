@@ -53,44 +53,61 @@
                 <div class="col-lg-12">
                     <uib-accordion close-others="true">
                         <uib-accordion-group heading="Route {{$index+1}}" is-open="$first" ng-repeat="route in item.routes">
-                            <p>Rating: {{route.rating}}</p>
-                            <p>Estimated total Cost: {{route.cost}}</p>
-                            <!--flight begin-->
-                            <p>the total fare of flights: {{route.flight.fare.total_price}}</p>
-                            <ul>outbounds flight:
-                                <li ng-repeat="f in route.flight.itineraries[0].outbound.flights">
-                                    <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
-                                    <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
-                                    <p>{{f.departs_at}} - {{f.arrives_at}}</p>
-                                </li>
-                            </ul>
-                            <ul>inbounds flight:
-                                <li ng-repeat="f in route.flight.itineraries[0].inbound.flights">
-                                    <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
-                                    <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
-                                    <p>{{f.departs_at}} - {{f.arrives_at}}</p>
-                                </li>
-                            </ul>
-                            <!--<a target="_blank" ng-href="{{route.flight.deep_link}}">purchase</a>-->
+                                <h3>Rating: {{route.rating}}</h3>
+                                <h3>Estimated total Cost: ${{route.cost}}</h3>
+                                <hr/>
+                                <!--flight begin-->
+                            <div class="text-left" style="background: #ecf0f1">
+                                <h4>the total fare of flights: ${{route.flight.fare.total_price}}</h4>
+                                <h4>outbounds flight:</h4>
+                                <ul>
+                                    <li ng-repeat="f in route.flight.itineraries[0].outbound.flights">
+                                        <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
+                                        <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
+                                        <p>{{f.departs_at}}  --  {{f.arrives_at}}</p>
+                                    </li>
+                                </ul>
+                                <h4>inbounds flight:</h4>
+                                <ul>
+                                    <li ng-repeat="f in route.flight.itineraries[0].inbound.flights">
+                                        <p>Flight number: {{f.operating_airline}}{{f.flight_number}}</p>
+                                        <p>From {{f.origin.airport}} to {{f.destination.airport}}</p>
+                                        <p>{{f.departs_at}}  --  {{f.arrives_at}}</p>
+                                    </li>
+                                </ul>
+                                <!--<a target="_blank" ng-href="{{route.flight.deep_link}}">purchase</a>-->
+                            </div>
 
                             <!-- hotel begins -->
-                            <p>{{route.hotel.property_name}}</p>
-                            <p>${{route.hotel.total_price.amount}} per night</p>
-                            <p>{{route.hotel.address.line1}}</p>
-                            <p>{{route.hotel.contacts[0].type}}: {{route.hotel.contacts[0].detail}}</p>
+                            <hr/>
+                            <div class="text-right">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <img class="img-responsive img-rounded img-centered" src="img/portfolio/cabin.png" alt=""/>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <p>{{route.hotel.property_name}}</p>
+                                        <p>${{route.hotel.total_price.amount}} per night</p>
+                                        <p>{{route.hotel.address.line1}}</p>
+                                        <p>{{route.hotel.contacts[0].type}}: {{route.hotel.contacts[0].detail}}</p>
+                                    </div>
+                                </div>
+                            </div>
                             <!--<a ng-href="{{route.hotel._links.more_rooms_at_this_hotel.href}}">see more</a>-->
                         </uib-accordion-group>
                     </uib-accordion>
                 </div>
             </div>
-            <div class="row" ng-repeat="poi in item.POIs">
+            <div class="row">
+            <div class="col-lg-12" ng-repeat="poi in item.POIs">
                 <div class="col-lg-6">
-                    <img ng-src="{{poi.main_image}}">
+                    <img class="img-responsive img-rounded img-centered" ng-src="{{poi.main_image}}">
                 </div>
                 <div class="col-lg-6">
                     <p>{{poi.title}}</p>
                     <p>{{poi.details.short_description}}</p>
                 </div>
+            </div>
             </div>
         <!--</div>-->
     </div>
