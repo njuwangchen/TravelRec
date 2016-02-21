@@ -1,8 +1,8 @@
 var formM = angular.module('formM', []);
 formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', '$timeout', function($scope, $http, $rootScope, $state, $timeout) {
 	$scope.req = {
-		'from': '',
-		'budget': 300,
+		'from': 'Chicago',
+		'budget': 1000,
 		'depart': null,
 		'return': null,
 	};
@@ -17,6 +17,7 @@ formM.controller('formCtrl', ['$scope', '$http', '$rootScope', '$state', '$timeo
 		$scope.eta = 120;
 		$scope.clock = $timeout(function(){
 			$scope.message = ($scope.eta--) + ' seconds remaining';
+			console.log($scope.message);
 		}, 1000);
 		$scope.planForm.disabled = true;
 		resP.then(function(response){
