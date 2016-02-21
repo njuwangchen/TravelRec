@@ -16,10 +16,11 @@
                         </div>
                     </div>
                     <!--<img src="img/portfolio/cabin.png" class="img-responsive" alt="">-->
-                    <div class="textoverimg" style="background-image: url('img/portfolio/cabin.png')">
+                    <div class="textoverimg" ng-style="{'background-image': 'url('+item.POIs[0].main_image+')'}">
+
                         <h3>{{item.name}}</h3>
                         <p>{{item.routes[0].rating}}</p>
-                        <h4>{{item.routes[0].cost}}</h4>
+                        <h4>${{item.routes[0].cost}}</h4>
                     </div>
                 </a>
             </div>
