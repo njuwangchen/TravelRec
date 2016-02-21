@@ -2,7 +2,7 @@
  * Created by ClarkWong on 20/2/16.
  */
 
-var routerApp = angular.module('routerApp', ['ui.router']);
+var routerApp = angular.module('routerApp', ['ui.router', 'ui.bootstrap', 'formM', 'resultsM']);
 
 routerApp.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/form');

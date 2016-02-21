@@ -34,11 +34,12 @@
 <!--<body id="page-top" class="index">-->
 
 
-    <section id="plan">
+    <section id="plan" ng-controller="formCtrl">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Make a Plan</h2>
+					{{message}}
                     <hr class="star-primary">
                 </div>
             </div>
@@ -46,32 +47,32 @@
                 <div class="col-lg-6 col-lg-offset-3">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="planForm" id="planForm" novalidate>
+                    <form name="planForm" id="planForm" novalidate ng-submit="submit()">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>From</label>
-                                <input type="text" class="form-control" placeholder="From" id="from" required data-validation-required-message="Where do you live?">
+                                <input type="text" ng-model="req.from" class="form-control" placeholder="From" id="from" required data-validation-required-message="Where do you live?">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Budget</label>
-                                <input type="number" class="form-control" placeholder="Budget" id="budget" required data-validation-required-message="What is your budget?">
+                                <input type="number" ng-model="req.budget" class="form-control" placeholder="Budget" id="budget" required data-validation-required-message="What is your budget?">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Depart</label>
-                                <input type="date" class="form-control" placeholder="Depart" id="depart" required data-validation-required-message="When do you plan to depart?">
+                                <input type="date" ng-model="req.depart" class="form-control" placeholder="Depart" id="depart" required data-validation-required-message="When do you plan to depart?">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Return</label>
-                                <input type="date" class="form-control" placeholder="Return" id="return" required data-validation-required-message="Where do you plan to return?">
+                                <input type="date" ng-model="req.return" class="form-control" placeholder="Return" id="return" required data-validation-required-message="Where do you plan to return?">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
